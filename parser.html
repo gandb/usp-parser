@@ -18,7 +18,8 @@
    
    <!--start vue-->
 	<!-- development version, includes helpful console warnings --> 
-	  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/http-vue-loader"></script>
  	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"></link>
 	
@@ -39,15 +40,18 @@
 	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
 
 
+
+
 	
 	</HEAD>
 
-<body>
+ 
 
 <div id="app" >
 
 	
-
+	<my-component></my-component>
+	</div>
   <textarea class="log" placeholder="Cole aqui o log"  v-model="log.content"></textarea>
   <button class="calc ui primary button" v-on:click="onParser">
 		Calcular estatística
@@ -386,8 +390,7 @@ chart.on('created', function() {
 		});
 		
 	}
-	  
-	  
+ 
 	new Vue({
 	  el: '#app',
 	  data: () => ({
@@ -395,7 +398,10 @@ chart.on('created', function() {
 		crontabResult:"Sucesso!!",
 		isSuccess:false,
 		log:{content:""}
-	  }),
+		}),
+		components: {
+			'my-component': httpVueLoader('my-component.vue')
+		},
 	  methods: {
 		onParser: function () {
 		

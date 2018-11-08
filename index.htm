@@ -7,15 +7,25 @@
 
   <body>
     <div id="my-app">
-      <my-component></my-component>
+      <t-progress-bar testeXisto="teste 1"></t-progress-bar>
+
+      <button class="calc ui primary button" v-on:click="onParser">
+        Calcular estatística
+      </button>
     </div>
 
     <script type="text/javascript">
       new Vue({
         el: '#my-app',
         components: {
-          'my-component': httpVueLoader('my-component.vue')
-        }
+          't-progress-bar': httpVueLoader('t-progress-bar.vue')
+          //'tpie': httpVueLoader('t-pie.vue')
+        },
+        methods: {
+          onParser: function () { 
+              console.log("Sucesso no cron");
+            }
+          }
       });
     </script>
   </body>

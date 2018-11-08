@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<!-- tecnologias estudadas: vue, foundation-->
+<html>
+<HEAD>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+   
+   <!--start vue-->
+	<!-- development version, includes helpful console warnings --> 
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+ 	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"></link>
+	
+	<script src="https://unpkg.com/semantic-ui-vue/dist/umd/semantic-ui-vue.min.js"></script>
+	
+	
+	<script src="./pie.js?v=1"></script>
+
+
+	<!--start jquery-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!--end jquery-->
+
+	   
+	</HEAD>
+
+<body>
+<svg title="1"  viewBox="-1 -1 2 2" preserveAspectRatio="xMinYMin meet"
+  style="margin:100px;width:400px;height:400px;transform: rotate(-0.25turn)">  
+</svg>
+ 
+
+		<div id="app" >
+	<LABEL>{{message}}</LABEL>
+ </div>
+	  
+		<SCRIPT> 
+		
+		$(document).ready(initPage);
+
+
+	function initPage()
+	{
+			let piesucess = new PieFaill("svg");
+			piesucess.draw();
+			
+
+	}
+	new Vue({
+	  el: '#app',
+	  data: () => ({
+		message:"Aguardando..."  
+	  }),
+	  methods: {
+		onParser: function () {
+	  	 
+	  	 }	 
+  	}
+	});
+	</SCRIPT>
+	
+</body>
+</html>
+
+ 

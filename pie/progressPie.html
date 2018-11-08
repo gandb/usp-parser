@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<!-- tecnologias estudadas: vue, foundation-->
+<html>
+<HEAD>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+   
+   <!--start vue-->
+	<!-- development version, includes helpful console warnings --> 
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+ 	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css"></link>
+	
+	<script src="https://unpkg.com/semantic-ui-vue/dist/umd/semantic-ui-vue.min.js"></script>
+	
+
+	<!--start jquery-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<!--end jquery-->
+
+	   
+	</HEAD>
+
+<body>
+<svg viewBox="-1 -1 2 2"
+  style="margin:100px;width:400px;height:400px;transform: rotate(-0.25turn)"> 
+	<path d="M1 0 A1 1 0 0 1 0.8 0.59 L0 0"></path>
+</svg>
+<div id="app" >
+	<LABEL>{{message}}</LABEL>
+ </div>
+	  
+	  <SCRIPT>
+	  const svgEl = document.querySelector('svg');
+	/*	const slices = [
+		  { percent: 0.1, color: 'Coral' },
+		  { percent: 0.65, color: 'CornflowerBlue' },
+		  { percent: 0.2, color: '#00ab6b' },
+		];
+		*/
+		const slices = [
+		{ percent: 0.01, color: 'Coral' },
+		{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+
+ 
+ { percent: 0.01, color: 'Coral' },
+		{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+
+ 
+
+ 	{ percent: 0.01, color: 'Coral' },
+		{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+
+ 
+
+ 	{ percent: 0.01, color: 'Coral' },
+		{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+
+ 
+
+
+ 	{ percent: 0.01, color: 'Coral' },
+		{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+
+ 
+
+
+ 	{ percent: 0.01, color: 'Coral' },
+		{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'CornflowerBlue' },
+			{ percent: 0.01, color: '#00ab6b' },
+			{ percent: 0.01, color: 'Coral' },
+		  { percent: 0.01, color: 'CornflowerBlue' },
+
+ 
+ 
+
+
+		];
+
+		let cumulativePercent = 0;
+
+		function getCoordinatesForPercent(percent) {
+		  const x = Math.cos(2 * Math.PI * percent);
+		  const y = Math.sin(2 * Math.PI * percent);
+		  return [x, y];
+		}
+
+		slices.forEach(slice => {
+		  // destructuring assignment sets the two variables at once
+		  const [startX, startY] = getCoordinatesForPercent(cumulativePercent);
+		  
+		  // each slice starts where the last slice ended, so keep a cumulative percent
+		  cumulativePercent += slice.percent;
+		  
+		  const [endX, endY] = getCoordinatesForPercent(cumulativePercent);
+
+		  // if the slice is more than 50%, take the large arc (the long way around)
+		  const largeArcFlag = slice.percent > .5 ? 1 : 0;
+
+			// create an array and join it just for code readability
+		  const pathData = [
+			`M ${startX} ${startY}`, // Move
+			`A 1 1 0 ${largeArcFlag} 1 ${endX} ${endY}`, // Arc
+			`L 0 0`, // Line
+		  ].join(' ');
+
+		  // create a <path> and append it to the <svg> element
+		  const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		  pathEl.setAttribute('d', pathData);
+		  pathEl.setAttribute('fill', slice.color);
+		  svgEl.appendChild(pathEl);
+		});
+	  
+	new Vue({
+	  el: '#app',
+	  data: () => ({
+		message:"Aguardando..."  
+	  }),
+	  methods: {
+		onParser: function () {
+	  	 
+	  	 }	 
+  	}
+	});
+	</SCRIPT>
+	
+</body>
+</html>
+
+ 
